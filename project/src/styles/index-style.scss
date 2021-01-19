@@ -1,0 +1,199 @@
+@import "_variables";
+@import "_extend";
+@import "_mixin";
+
+#first-screen
+{
+    .float-wrap
+    {
+        width: 600px;
+        height: 900px;
+        @media screen and (max-width :  768px)
+        {
+            
+        }
+        position: relative;
+        .img-float
+        {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            transition: transform 330ms ease-in-out;
+            &-1
+            {
+                top: 38%;
+                animation: fly-animation 5s 2s ease-in-out infinite;
+            }
+            &-2
+            {
+                animation: fly-animation 5s 1s ease-in-out infinite;
+            }
+            &-3
+            {
+                top: 62%;
+                animation: fly-animation 5s 1.5s ease-in-out infinite;
+            }
+            &-4
+            {
+                top: unset;
+                // transform: tra;
+                bottom: 0;
+            }
+            $shift : 68%;
+            &-5
+            {
+                top: $shift;
+                animation: light-animation 2s linear infinite;
+
+            }
+            &-6
+            {
+                top: $shift +4%;
+                animation: light-animation 2s .5s linear infinite;
+            }
+            &-7
+            {
+                animation: light-animation 2s 1s linear infinite;
+                top: $shift +8%;
+            }
+            &-8
+            {
+                &-1
+                {
+                    left: 20%;
+                    top: unset;
+                    bottom: 7%;
+                    animation: light-animation 3s 1s linear infinite;
+                }
+                &-2
+                {
+                    animation: light-animation 3s 1s linear infinite;
+                    top: unset;
+                    bottom: 7%;
+                    left: unset;
+                    right: 0;
+                }
+            }
+            &-9
+            {
+                &-1
+                {
+                    animation: light-animation 3s linear infinite;
+                    top: unset;
+                    bottom: 10%;
+                    left: 20%;
+                }
+                &-2
+                {
+                    animation: light-animation 3s linear infinite;
+                    top: unset;
+                    bottom: 10%;
+                    left: unset;
+                    right: 0;
+                }
+            }
+            $around-offset : 50%;
+            &-10
+            {
+                animation: light-animation 4s linear infinite, fly-animation 5s 4s ease-in-out infinite;
+                right: 0%;
+                left: unset;
+                top: $around-offset;
+            }
+            &-11
+            {
+                animation: light-animation 4s .5s linear infinite, fly-animation 5s 3s ease-in-out infinite;
+                top: $around-offset + 10%;
+                left: unset;
+                right: 0%;
+            }
+            &-12
+            {
+                animation: light-animation 4s 1s linear infinite, fly-animation 5s 2s ease-in-out infinite;
+                top: $around-offset + 15%;
+                left: 37%;
+            }
+            &-13
+            {
+                animation: light-animation 4s 1.5s linear infinite, fly-animation 5s 1s ease-in-out infinite;
+                top: $around-offset ;
+                left: 10%;
+            }
+            &-14
+            {
+                animation: light-animation 4s 2s linear infinite, fly-animation 5s ease-in-out infinite;
+                top: $around-offset - 13%;
+                z-index: -1;
+                left: 35%;
+            }
+        }
+    }
+}
+
+@keyframes fly-animation
+{
+    50%
+    {
+        transform: translate(-50%,-60%);
+    }
+}
+@keyframes light-animation
+{
+    0%
+    {
+        filter: brightness(100%);
+    }
+    25%
+    {
+        filter: brightness(50%);
+    }
+    75%
+    {
+        filter: brightness(150%);
+    }
+    100%
+    {
+        filter: brightness(100%);
+    }
+}
+
+#services
+{
+    .service-card
+    {
+        padding: 20px;
+        margin: 20px 0;
+        background: $blue;
+        border-radius: 15px;
+        .service-card-header
+        {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        p
+        {
+
+        }
+        .service-card-price
+        {
+            color: $light-blue;
+            font-weight: 500;
+            font-size: 48px;
+            b
+            {
+                font-weight: 900;
+                font-size: 60px;
+                color: $light-blue;
+            }
+        }
+    }
+}
+#clients
+{
+    hr
+    {
+        background: red;
+        opacity: 1;
+    }
+}

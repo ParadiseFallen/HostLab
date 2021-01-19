@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-    <title>Rename me</title>
+    <title>Hostlab</title>
     <!-- * favico -->
     <link rel="icon" href="./../img/favicon.png" type="image/png">
     <!-- #region Meta tags -->
@@ -15,6 +15,7 @@
 
     <!-- #region Styles -->
     @@include_once('./components/_global-head.html')
+    <link rel="stylesheet" href="./../styles/index-style.css">
     <!-- #endregion -->
 
 </head>
@@ -24,14 +25,119 @@
     @@include_once('./components/_header.html')
 
     <main>
-        
+
+        <section id="first-screen" class="my-md-5 my-1">
+            <div class="container">
+                <div class="row d-flex flex-wrap-reverse">
+                    <div class="col-md-6 d-flex flex-column justify-content-center">
+                        <h1 class="section-header text-uppercase">ЛУЧШЫЙ ХОСТИНГ
+                            В УКРАИНЕ</h1>
+                        <p class="my-3">Индивидуальные тарифные планы
+                            для каждого клиента, с учетом ваших
+                            требований</p>
+                        <a href="#" class="blue-btn blue-btn-wide">Заказать</a>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="scale-wrapper" class="d-flex justify-content-center align-items-center">
+                            <div class="float-wrap">
+                                @@for(let i = 7; i >= 1; i--)
+                                {
+                                <div class="img-float img-float-`+i+`">
+                                    <img src="./../img/float-`+i+`.png" alt="" class="img-fluid">
+                                </div>
+                                }
+                                @@for(let i = 8; i <= 9; i++) { <div class="img-float img-float-`+i+`-1">
+                                    <img src="./../img/float-`+i+`.png" alt="" class="img-fluid">
+                            </div>
+                            }
+                            @@for(let i = 8; i <= 9; i++) { <div class="img-float img-float-`+i+`-2">
+                                <img src="./../img/float-`+i+`.png" alt="" class="img-fluid">
+                        </div>
+                        }
+                        @@for(let i = 10; i <= 14; i++) { <div class="img-float img-float-`+i+`">
+                            <img src="./../img/float-`+i+`.png" alt="" class="img-fluid">
+                    </div>
+                    }
+                </div>
+            </div>
+            </div>
+            </div>
+            </div>
+        </section>
+
+        <section id="services" class="my-md-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="section-header text-center">
+                            Наши услуги
+                        </h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        @@for(let i = 0; i < 2; i++) { 
+                            <div
+                            class="service-card d-flex flex-column justify-content-around align-items-center px-">
+                            <h3 class="service-card-header text-uppercase">
+                                CUSTOM ХОСТИНГ
+                            </h3>
+                            <p class="text-center">
+                                Выбери один из наших тарифов который <br>
+                                подойет твоему сайту больше всего
+                            </p>
+                            <h2 class="service-card-price">
+                                от <b>200</b> грн
+                            </h2>
+                            <a href="#" class="blue-btn blue-btn-wide">Заказать</a>
+                    </div>
+                    }
+                </div>
+            </div>
+            </div>
+        </section>
+        <section id="clients">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="section-header text-center">
+                            Наши клиенты и партнеры
+                        </h2>
+                    </div>
+                </div>
+                <div class="row slider-row my-3">
+                    <hr>
+                    <div class="col-12">
+                        sss
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </section>
     </main>
 
     @@include_once('./components/_footer.html')
-    
+
     <!-- #region Scripts -->
     @@include_once('./components/_global-scripts.html')
-    
+    <script>
+        const normalWidth = 600
+        // w/h
+        const ration = 600/900 * 100
+        
+        function rescale() {
+            let wrapper = $('#scale-wrapper')
+            let child = wrapper.children()
+            let k = wrapper.innerWidth() / normalWidth
+            child.css('transform', `scale(${k})`)
+            child.css('heigh',`${k/ration}`)
+            console.log(`w : ${child.width()} h : ${child.height()}`)
+            console.log(`k : ${child.width()/child.height()}`)
+        }
+
+        $(rescale)
+        $(window).on('resize', rescale)
+    </script>
 
     <!-- #endregion -->
 </body>

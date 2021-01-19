@@ -84,8 +84,7 @@ task('build-styles', () =>
                 }
             ),
             cleanCss({
-                "format": "beautify",
-                level: 2
+                "format": "beautify"
             })))
         .pipe(gulpIf(!isReleaseBuild, sourcemaps.write()))
         .pipe(dest(fileMap.build.styles))
@@ -113,7 +112,9 @@ task('build-fonts', () =>
         .pipe(browserSync.stream())
 )
 
-task('build-resources', () => src(fileMap.src.resources, { allowEmpty: true }).pipe(dest(fileMap.build.resources)))
+task('build-resources', () => 
+    src(`${fileMap.src.resources}/**/*.*`, { allowEmpty: true })
+.pipe(dest(fileMap.build.resources)))
 
 task('default', parallel('build-resources', 'build-styles', 'build-pages', 'build-scripts', 'build-img', 'build-fonts'))
 
