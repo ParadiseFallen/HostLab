@@ -38,7 +38,7 @@
                         <a href="#" class="blue-btn blue-btn-wide">Заказать</a>
                     </div>
                     <div class="col-md-6">
-                        <div id="scale-wrapper" class="d-flex justify-content-center align-items-center">
+                        <!-- <div id="scale-wrapper" class="d-flex justify-content-center align-items-center">
                             <div class="float-wrap">
                                 @@for(let i = 7; i >= 1; i--)
                                 {
@@ -55,12 +55,10 @@
                         </div>
                         }
                         @@for(let i = 10; i <= 14; i++) { <div class="img-float img-float-`+i+`">
-                            <img src="./../img/float-`+i+`.png" alt="" class="img-fluid">
+                            <img src="./../img/float-`+i+`.png" alt="" class="img-fluid"> -->
                     </div>
-                    }
+                    <!-- } -->
                 </div>
-            </div>
-            </div>
             </div>
             </div>
         </section>
@@ -76,8 +74,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        @@for(let i = 0; i < 2; i++) { 
-                            <div
+                        @@for(let i = 0; i < 2; i++) { <div
                             class="service-card d-flex flex-column justify-content-around align-items-center px-">
                             <h3 class="service-card-header text-uppercase">
                                 CUSTOM ХОСТИНГ
@@ -96,7 +93,7 @@
             </div>
             </div>
         </section>
-        <section id="clients">
+        <section id="clients" class="my-5">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -105,12 +102,99 @@
                         </h2>
                     </div>
                 </div>
-                <div class="row slider-row my-3">
-                    <hr>
-                    <div class="col-12">
-                        sss
+                <div class="row slider-row my-3 align-items-center">
+                    <div class="col-1">
+                        <button class="slider-control slider-control-left">
+                            &lt;
+                        </button>
+                    </div>
+                    <div class="col-10">
+                        <hr>
+                        <div class="slider-wrap my-0">
+                            @@for(let i = 1; i <= 20; i++) { <div>
+                                <img src="./../img/Монтажная область `+i+`.png" alt="" class="img-fluid">
+                        </div>
+                        }
                     </div>
                     <hr>
+                </div>
+                <div class="col-1">
+                    <button class="slider-control slider-control-right">
+                        &gt;
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 slider-dots position-relative">
+
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <section id="features">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="section-header text-center">
+                            Наши преймущества
+                        </h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 my-4 align-items-center d-flex flex-column justify-content-center">
+                        <div class="feature-card my-4 w-auto">
+                            <div class="row">
+                                <div class="col-2">
+                                    <span>
+                                        1
+                                    </span>
+                                </div>
+                                <div class="col-6 d-flex flex-column">
+                                    <h3>
+                                        Лучшие специалисты <br>
+                                        в отрасли
+                                    </h3>
+                                    <p>
+                                        Больше 10 лет мы создаем
+                                        для вас хостинг и знаем про
+                                        него практически всё.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature-card my-4 w-auto">
+                            <div class="row">
+                                <div class="col-2">
+                                    <span>
+                                        2
+                                    </span>
+                                </div>
+                                <div class="col-6 d-flex flex-column">
+                                    <h3>
+                                    Лучшие специалисты <br>
+                                    в отрасли
+                                    </h3>
+                                    <p>
+                                        Больше 10 лет мы создаем
+                                        для вас хостинг и знаем про
+                                        него практически всё.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="" alt="" class="img-fluid">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-md-6">
+
+                    </div>
                 </div>
             </div>
         </section>
@@ -121,24 +205,19 @@
     <!-- #region Scripts -->
     @@include_once('./components/_global-scripts.html')
     <script>
-        const normalWidth = 600
-        // w/h
-        const ration = 600/900 * 100
-        
-        function rescale() {
-            let wrapper = $('#scale-wrapper')
-            let child = wrapper.children()
-            let k = wrapper.innerWidth() / normalWidth
-            child.css('transform', `scale(${k})`)
-            child.css('heigh',`${k/ration}`)
-            console.log(`w : ${child.width()} h : ${child.height()}`)
-            console.log(`k : ${child.width()/child.height()}`)
-        }
-
-        $(rescale)
-        $(window).on('resize', rescale)
+        $(document).ready(function () {
+            $('.slider-wrap').slick(
+                {
+                    prevArrow: $('.slider-control-left'),
+                    nextArrow: $('.slider-control-right'),
+                    infinite: true,
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
+                    appendDots: $('.slider-dots'),
+                    dots: true
+                });
+        });
     </script>
-
     <!-- #endregion -->
 </body>
 

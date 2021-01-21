@@ -130,7 +130,81 @@
         }
     }
 }
-
+#clients
+{
+    .slider-row
+    {
+        hr
+        {
+            background: $neon-purple ;
+            opacity: 1;
+            margin: 0;
+            box-shadow: 0 0 20px 6px $neon-purple ;
+            z-index: 9;
+            position: relative;
+            height: 2px;
+        }
+    }
+    .slider-control
+    {
+        background: transparent;
+        border: none;
+        font-size: 120px;
+        color: $neon-purple;
+        text-shadow: 0 0 20px $neon-purple;
+        transition: color .3s ease-in-out, text-shadow .3s ease-in-out;
+        &:focus
+        {
+            border: none;
+            outline: none;
+        }
+        &:hover
+        {
+            color: #fff;
+            text-shadow: 0 0 20px  #fff;
+        }
+    }
+    .slick-dots li 
+    {
+        button::before
+        {
+            color: $cold-blue;
+            font-size: 20px;
+            transition: color .3s ease-in-out;
+            opacity: 1;
+        }
+        &.slick-active
+        {
+            button::before
+            {
+                color: $neon-purple;
+            }
+        }
+    }
+    
+}
+#features
+{
+    .feature-card
+    {
+        span
+        {
+            font-weight: 900;
+            font-size: 180px;
+            line-height: 150px;
+        }
+        h3
+        {
+            font-size: 24px;
+            font-weight: 800;
+        }
+        p
+        {
+            font-size: 18px;
+            font-weight: 500;
+        }
+    }
+}
 @keyframes fly-animation
 {
     50%
@@ -187,13 +261,5 @@
                 color: $light-blue;
             }
         }
-    }
-}
-#clients
-{
-    hr
-    {
-        background: red;
-        opacity: 1;
     }
 }
