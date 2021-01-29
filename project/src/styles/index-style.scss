@@ -145,43 +145,50 @@
             height: 2px;
         }
     }
-    .slider-control
+    
+    
+    
+}
+.slick-dots li 
+{
+    button::before
     {
-        background: transparent;
-        border: none;
-        font-size: 120px;
-        color: $neon-purple;
-        text-shadow: 0 0 20px $neon-purple;
-        transition: color .3s ease-in-out, text-shadow .3s ease-in-out;
-        &:focus
-        {
-            border: none;
-            outline: none;
-        }
-        &:hover
-        {
-            color: #fff;
-            text-shadow: 0 0 20px  #fff;
-        }
+        color: $cold-blue;
+        font-size: 20px;
+        transition: color .3s ease-in-out;
+        opacity: 1;
     }
-    .slick-dots li 
+    &.slick-active
     {
         button::before
         {
-            color: $cold-blue;
-            font-size: 20px;
-            transition: color .3s ease-in-out;
-            opacity: 1;
-        }
-        &.slick-active
-        {
-            button::before
-            {
-                color: $neon-purple;
-            }
+            color: $neon-purple;
         }
     }
-    
+}
+.slider-control,
+.slider-control i
+{
+    background: transparent;
+    border: none;
+    font-size: 64px;
+    color: $neon-purple;
+    text-shadow: 0 0 20px $neon-purple;
+    transition: color .3s ease-in-out, text-shadow .3s ease-in-out;
+    &:focus
+    {
+        border: none;
+        outline: none;
+    }
+    &:hover
+    {
+        color: #fff;
+        text-shadow: 0 0 20px  #fff;
+    }
+    @media screen  and (max-width : 768px)
+    {
+        font-size: 60px;
+    }
 }
 #features
 {
@@ -253,13 +260,37 @@
         {
             color: $light-blue;
             font-weight: 500;
-            font-size: 48px;
+            @media screen and (min-width : 576px)
+            {
+                font-size: 48px;
+            }
             b
             {
                 font-weight: 900;
                 font-size: 60px;
                 color: $light-blue;
             }
+        }
+    }
+}
+
+#feedback
+{
+    .feedback-card-container-wrap
+    {
+        background: $feedback-card-bg;
+        border-radius: 10px;
+        .feedback-card
+        {
+            .feedback-card-text
+            {
+                font-size: 18px;
+                font-weight: 500;
+            }
+        }
+        .feedback-card-description
+        {
+            font-weight: 700;
         }
     }
 }

@@ -4,13 +4,12 @@ import browserSync from 'browser-sync'
 //! STATIC = HTML CSS JS
 const isStaticServer = true;
 let initTask
-if (isStaticServer)
-{
-    initTask =  () =>
+if (isStaticServer) {
+    initTask = () =>
         browserSync.init({
             notify: false,
             reloadOnRestart: true,
-            server : {
+            server: {
                 //* use for debug
                 // directory: true, 
                 //* to serve multiple roots
@@ -20,14 +19,15 @@ if (isStaticServer)
                 },
                 routes: {
                     //* relative path from gulpfile
-                    // "/bower_components": "bower_components"
-                }
-            }
+                },
+
+            },
+            tunnel: 'hostlab',
+            online: true
         })
 }
-else
-{
-    initTask =  () =>
+else {
+    initTask = () =>
         browserSync.init({
             proxy: '',
             notify: false

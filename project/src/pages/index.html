@@ -14,7 +14,7 @@
     <!-- #endregion -->
 
     <!-- #region Styles -->
-    @@include_once('./components/_global-head.html')
+    @@include('./components/_global-head.html')
     <link rel="stylesheet" href="./../styles/index-style.css">
     <!-- #endregion -->
 
@@ -22,14 +22,19 @@
 
 <body>
 
-    @@include_once('./components/_header.html')
+    @@include('./components/_header.html')
 
-    <main>
+    <main class="position-relative">
+
+        @@for(let i = 0; i<30; i++)
+        {
+            <div class="position-absolute particle"></div>
+        }
 
         <section id="first-screen" class="my-md-5 my-1">
             <div class="container">
                 <div class="row d-flex flex-wrap-reverse">
-                    <div class="col-md-6 d-flex flex-column justify-content-center">
+                    <div class="col-md-6 d-flex flex-column justify-content-center align-items-md-start align-items-center">
                         <h1 class="section-header text-uppercase">ЛУЧШЫЙ ХОСТИНГ
                             В УКРАИНЕ</h1>
                         <p class="my-3">Индивидуальные тарифные планы
@@ -38,28 +43,9 @@
                         <a href="#" class="blue-btn blue-btn-wide">Заказать</a>
                     </div>
                     <div class="col-md-6">
-                        <!-- <div id="scale-wrapper" class="d-flex justify-content-center align-items-center">
-                            <div class="float-wrap">
-                                @@for(let i = 7; i >= 1; i--)
-                                {
-                                <div class="img-float img-float-`+i+`">
-                                    <img src="./../img/float-`+i+`.png" alt="" class="img-fluid">
-                                </div>
-                                }
-                                @@for(let i = 8; i <= 9; i++) { <div class="img-float img-float-`+i+`-1">
-                                    <img src="./../img/float-`+i+`.png" alt="" class="img-fluid">
-                            </div>
-                            }
-                            @@for(let i = 8; i <= 9; i++) { <div class="img-float img-float-`+i+`-2">
-                                <img src="./../img/float-`+i+`.png" alt="" class="img-fluid">
-                        </div>
-                        }
-                        @@for(let i = 10; i <= 14; i++) { <div class="img-float img-float-`+i+`">
-                            <img src="./../img/float-`+i+`.png" alt="" class="img-fluid"> -->
-                    </div>
-                    <!-- } -->
+                        
+                    </div>  
                 </div>
-            </div>
             </div>
         </section>
 
@@ -72,7 +58,7 @@
                         </h2>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row align-items-center">
                     <div class="col-md-6">
                         @@for(let i = 0; i < 2; i++) { <div
                             class="service-card d-flex flex-column justify-content-around align-items-center px-">
@@ -87,10 +73,15 @@
                                 от <b>200</b> грн
                             </h2>
                             <a href="#" class="blue-btn blue-btn-wide">Заказать</a>
+                        </div>
+                        }
                     </div>
-                    }
+                    <div class="col-md-6">
+                        <div>
+                            <img src="./../img/services.png" alt="" class="img-fluid">
+                        </div>
+                    </div>
                 </div>
-            </div>
             </div>
         </section>
         <section id="clients" class="my-5">
@@ -104,11 +95,11 @@
                 </div>
                 <div class="row slider-row my-3 align-items-center">
                     <div class="col-1">
-                        <button class="slider-control slider-control-left">
-                            &lt;
+                        <button class="slider-control slider-control-left d-md-flex d-none">
+                            <i class="fas fa-chevron-left"></i>
                         </button>
                     </div>
-                    <div class="col-10">
+                    <div class="col-md-10">
                         <hr>
                         <div class="slider-wrap my-0">
                             @@for(let i = 1; i <= 20; i++) { <div>
@@ -119,8 +110,8 @@
                     <hr>
                 </div>
                 <div class="col-1">
-                    <button class="slider-control slider-control-right">
-                        &gt;
+                    <button class="slider-control slider-control-right d-md-flex d-none">
+                        <i class="fas fa-chevron-right"></i>
                     </button>
                 </div>
             </div>
@@ -141,16 +132,16 @@
                         </h1>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row align-items-center">
                     <div class="col-md-6 my-4 align-items-center d-flex flex-column justify-content-center">
                         <div class="feature-card my-4 w-auto">
                             <div class="row">
-                                <div class="col-2">
+                                <div class="col-lg-2 col-4">
                                     <span>
                                         1
                                     </span>
                                 </div>
-                                <div class="col-6 d-flex flex-column">
+                                <div class="col-md-6 col-8 d-flex flex-column">
                                     <h3>
                                         Лучшие специалисты <br>
                                         в отрасли
@@ -165,12 +156,12 @@
                         </div>
                         <div class="feature-card my-4 w-auto">
                             <div class="row">
-                                <div class="col-2">
+                                <div class="col-lg-2 col-4">
                                     <span>
                                         2
                                     </span>
                                 </div>
-                                <div class="col-6 d-flex flex-column">
+                                <div class="col-md-6 col-8 d-flex flex-column">
                                     <h3>
                                     Лучшие специалисты <br>
                                     в отрасли
@@ -185,35 +176,161 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <img src="" alt="" class="img-fluid">
+                        <img src="./../img/features-1.png" alt="" class="img-fluid">
                     </div>
                 </div>
-                <div class="row">
+                <div class="row align-items-center">
                     <div class="col-md-6">
-                        <img src="" alt="" class="img-fluid">
+                        <img src="./../img/features-2.png" alt="" class="img-fluid">
                     </div>
-                    <div class="col-md-6">
-
+                    <div class="col-md-6 my-4 align-items-center d-flex flex-column justify-content-center">
+                        <div class="feature-card my-4 w-auto">
+                            <div class="row">
+                                <div class="col-lg-2 col-4">
+                                    <span>
+                                        3
+                                    </span>
+                                </div>
+                                <div class="col-md-6 col-8 d-flex flex-column">
+                                    <h3>
+                                        Лучшие специалисты <br>
+                                        в отрасли
+                                    </h3>
+                                    <p>
+                                        Больше 10 лет мы создаем
+                                        для вас хостинг и знаем про
+                                        него практически всё.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature-card my-4 w-auto">
+                            <div class="row">
+                                <div class="col-lg-2 col-4">
+                                    <span>
+                                        4
+                                    </span>
+                                </div>
+                                <div class="col-md-6 col-8 d-flex flex-column">
+                                    <h3>
+                                        Лучшие специалисты <br>
+                                        в отрасли
+                                    </h3>
+                                    <p>
+                                        Больше 10 лет мы создаем
+                                        для вас хостинг и знаем про
+                                        него практически всё.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <section id="feedback" class="my-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h1 class="section-header">
+                            Отзывы наших клентов
+                        </h1>
+                    </div>
+                </div>
+                <div class="row py-4 align-items-center">
+                    <div class="col-lg-6">
+                        <div class="feedback-card-container-wrap py-md-4 py-2 px-md-5">
+                            <div class="row align-items-center">
+                                <div class="col-1">
+                                    <button class="slider-control slider-control-left d-md-flex d-none">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </button>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="feedback-card-container">
+                                        @@for(let i = 0; i < 5; i++) 
+                                        { 
+                                            <div class="feedback-card px-4">
+                                                <p class="feedback-card-text">
+                                                    Ваш шедевр готов!
+                                                    Значимость этих проблем настолько очевидна, что начало повседневной работы по формированию позиции играет
+                                                    важную роль в
+                                                    формировании позиций, занимаемых участниками в отношении поставленных задач. Значимость этих проблем
+                                                    настолько очевидна,
+                                                    что сложившаяся структура организации способствует подготовки и реализации дальнейших направлений развития.
+                                                    Повседневная
+                                                    практика показывает, что постоянный количественный рост и сфера нашей активности позволяет оценить значение
+                                                </p>
+                                                <span class="feedback-card-description d-flex flex-wrap">
+                                                    <h5 class="m-1"><b>Армен </b></h5>
+                                                    <span class="m-1">на сайте : </span>
+                                                    <a href="#" class="m-1">https://www.reg.ru/main/index2</a>
+                                                </span>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <button class="slider-control slider-control-right d-md-flex d-none">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div>
+                            <img src="./../img/feedback.png" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    @@include_once('./components/_footer.html')
+    @@include('./components/_footer.html')
 
     <!-- #region Scripts -->
-    @@include_once('./components/_global-scripts.html')
+    @@include('./components/_global-scripts.html')
     <script>
         $(document).ready(function () {
-            $('.slider-wrap').slick(
+            $('#clients .slider-wrap').slick(
                 {
-                    prevArrow: $('.slider-control-left'),
-                    nextArrow: $('.slider-control-right'),
+                    prevArrow: $('#clients .slider-control-left'),
+                    nextArrow: $('#clients .slider-control-right'),
                     infinite: true,
                     slidesToShow: 4,
                     slidesToScroll: 4,
-                    appendDots: $('.slider-dots'),
+                    appendDots: $('#clients .slider-dots'),
+                    dots: true,
+                    responsive: [
+                        {
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 3,
+                                slidesToScroll: 3,
+                            }
+                        },
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1,
+                                dots : false,
+                                arrows: false
+                            }
+                        }]
+                });
+            $('#feedback .feedback-card-container').slick(
+                {
+                    prevArrow: $('#feedback .slider-control-left'),
+                    nextArrow: $('#feedback .slider-control-right'),
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    // appendDots: $('.slider-dots'),
                     dots: true
                 });
         });
